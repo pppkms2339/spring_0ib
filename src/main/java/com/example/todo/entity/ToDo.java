@@ -1,8 +1,6 @@
 package com.example.todo.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -12,7 +10,6 @@ import java.util.UUID;
 @Data
 public class ToDo {
 
-    @NotNull
     private String id;
 
     @NotNull
@@ -36,4 +33,5 @@ public class ToDo {
         this();
         this.description = description;
     }
+
 }

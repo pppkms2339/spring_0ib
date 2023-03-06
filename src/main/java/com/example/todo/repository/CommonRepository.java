@@ -13,6 +13,6 @@ public interface CommonRepository<T> {
 
     T findById(String id);
 
-    Iterable<T> findAll();
+    Collection<T> findAll();
 
 }
