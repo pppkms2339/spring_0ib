@@ -31,7 +31,8 @@ public class ToDoController {
         return ResponseEntity.ok(repository.findAll());
     }
 
-    @PostMapping("/todo")
+    @RequestMapping(value = "/todo", method = {RequestMethod.POST,
+            RequestMethod.PUT})
     public ResponseEntity<?> addTodo(
             @Valid @RequestBody ToDo toDo,
             BindingResult result
@@ -41,6 +42,16 @@ public class ToDoController {
         }
         ToDo todoFromDb = repository.save(toDo);
         return ResponseEntity.status(HttpStatus.CREATED).body(todoFromDb);
+    }
+
+    @DeleteMapping("/todo/{id}")
+    public ResponseEntity<ToDo> deleteToDo(@PathVariable String id) {
+        ToDo toDo = repository.findById(id);
+        if (toDo == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        repository.delete(toDo);
+        return ResponseEntity.noContent().build();
     }
 
 }
