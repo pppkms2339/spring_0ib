@@ -28,7 +28,7 @@ public class ToDoController {
         if (toDos == null || toDos.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.ok(repository.findAll());
+        return ResponseEntity.ok(toDos);
     }
 
     @RequestMapping(value = "/todo", method = {RequestMethod.POST,

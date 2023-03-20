@@ -84,7 +84,7 @@ public class ToDoRepository implements CommonRepository<ToDo> {
         namedParameters.put("id", toDo.getId());
         namedParameters.put("description", toDo.getDescription());
         namedParameters.put("created", toDo.getCreated());
-        namedParameters.put("update", toDo.getUpdated());
+        namedParameters.put("updated", toDo.getUpdated());
         namedParameters.put("completed", toDo.isCompleted());
         jdbcTemplate.update(sql, namedParameters);
         return findById(toDo.getId());
